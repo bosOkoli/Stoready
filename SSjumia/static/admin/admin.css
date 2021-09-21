@@ -1,0 +1,58 @@
+body{
+    background:#dddddd;
+    color:#e75480;
+    margin-top:5rem;
+    margin-bottom: 5rem;
+}
+.content-section {
+    background: #dddddd;
+    padding: 10px 20px;
+    border: 1px solid #dddddd;
+    border-radius: 3px;
+    margin-bottom: 20px;
+  }
+
+
+.navbar-light{
+     background-color:white;
+     
+}
+
+
+.nav-list{
+    background-color:#e75480;
+    margin-bottom:1rem;
+    
+}
+
+.nav-list:focus{
+    border-color:red;
+    background-color: #ed3431;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+}
+
+.nav-list:hover{
+    background-color: #ed3431;
+}
+
+
+.store-brand{
+    color:#e75480;
+}
+
+.store-brand:hover{
+    color:#ed3431
+}
+
+.search-box{
+    border-color:#e75480;
+}
+
+.search-box:focus{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color:#ed3431;
+}
+
+

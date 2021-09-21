@@ -1,0 +1,28 @@
+{%extends 'layout.html'%}{% block content %}
+<div class="slide-container">
+    <span id="slider-image1"></span>
+    <span id="slider-image2"></span>
+    <span id="slider-image3"></span>
+    <span id="slider-image4"></span>
+    <span id="slider-image5"></span>
+    <div class="image-container">    
+        <img src="{{ url_for('static',filename='images/image1.jpg') }}"  class="slider-image">
+        <img src="{{ url_for('static',filename='images/image2.jpg') }}"  class="slider-image">
+        <img src="{{ url_for('static',filename='images/image3.jpg') }}"  class="slider-image">
+        <img src="{{ url_for('static',filename='images/image4.jpg') }}"  class="slider-image">
+        <img src="{{ url_for('static',filename='images/image5.jpg') }}"  class="slider-image">
+    </div>
+    <div class="button-container">
+        <a href="#slider-image1" class="slider-button"></a>
+        <a href="#slider-image2" class="slider-button"></a>
+        <a href="#slider-image3" class="slider-button"></a>
+        <a href="#slider-image4" class="slider-button"></a>
+        <a href="#slider-image5" class="slider-button"></a>
+    </div>
+</div>
+<div class='head-row'><h1>wassup</h1>
+</div>
+<div class='content-box1'><h1>wassup</h1></div>
+
+
+{% endblock content %}
