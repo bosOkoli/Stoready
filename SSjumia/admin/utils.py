@@ -23,14 +23,16 @@ def handle_cart():
         
         return total,grand_total ,grand_total_plus_shipping,quantity_total
 
-def save_product_image_file(form_picture):
+def save_upload_thumbnail(form_picture):
     random_hex = secrets.token_hex(8)
     _, f_ext = os.path.splitext(form_picture.filename)
     picture_fn = random_hex + f_ext
-    picture_path = os.path.join(current_app.root_path, 'static/img/bg-img', picture_fn)
+    picture_path = os.path.join(current_app.root_path, 'static/img/img2/', picture_fn)
     i = Image.open(form_picture)
     i.save(picture_path)
-    return ('img/bg-img/' + picture_fn)
+    
+    return ('img/img2/' + picture_fn)
+
 
 def save_profile_picture(form_picture):
     random_hex = secrets.token_hex(8)

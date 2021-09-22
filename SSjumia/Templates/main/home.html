@@ -20,9 +20,207 @@
         <a href="#slider-image5" class="slider-button"></a>
     </div>
 </div>
-<div class='head-row'><h1>wassup</h1>
+<div>
+   <div class='head-row'>
+       <h4><i>ELECTRONICS</i></h4>
+    </div>
+    <div class="content-box1">
+    {% for product in electronics %}
+    <div class="col-lg-3">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 coverage">
+            <div class="thumbnail">
+                <a href="./view-product.html">
+                    <img class="prod_image"src="{{ url_for('static', filename=product.image_file) }}" alt="">
+                </a>
+                <div class="caption text-center">
+                    <h4 class="bold">{{product.prod_name}}</h4>
+                    <p>
+                        {{product.product_desc}}
+                    </p>
+                    <hr />
+                    <p>
+                        <a href="#" class="btn btn-default btn-sm view-button">
+                            <i class="glyphicon glyphicon-eye-open"></i> View
+                        </a>
+                        <a href="#" class="btn btn-default btn-sm cart-button">
+                            <i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class='content-box1'><h1>wassup</h1></div>
+{% endfor %}
+</div>
+
+<div>
+    <div class='head-row'>
+       <h4><i>FOOD</i></h4>
+    </div>
+    <div class="content-box1">
+    {% for product in food %}
+    <div class="col-lg-3">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 coverage">
+            <div class="thumbnail">
+                <a href="./view-product.html">
+                    <img class="prod_image"src="{{ url_for('static', filename=product.image_file) }}" alt="">
+                </a>
+                <div class="caption text-center">
+                    <h4 class="bold">{{product.prod_name}}</h4>
+                    <p>
+                        {{product.product_desc}}
+                    </p>
+                    <hr />
+                    <p>
+                        <a href="#" class="btn btn-default btn-sm view-button">
+                            <i class="glyphicon glyphicon-eye-open"></i> View
+                        </a>
+                        <a href="#" class="btn btn-default btn-sm cart-button">
+                            <i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+<div>
+    <div class='head-row'>
+       <h4><i>FASHION</i></h4>
+    </div>
+    <div class="content-box1">
+    {% for product in fashion %}
+    <div class="col-lg-3">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 coverage">
+            <div class="thumbnail">
+                <a href="./view-product.html">
+                    <img class="prod_image"src="{{ url_for('static', filename=product.image_file) }}" alt="">
+                </a>
+                <div class="caption text-center">
+                    <h4 class="bold">{{product.prod_name}}</h4>
+                    <p>
+                        {{product.product_desc}}
+                    </p>
+                    <hr />
+                    <p>
+                        <a href="#" class="btn btn-default btn-sm view-button">
+                            <i class="glyphicon glyphicon-eye-open"></i> View
+                        </a>
+                        <a href="#" class="btn btn-default btn-sm cart-button">
+                            <i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+    <div class='head-row'>
+        <h4><i>HEALTH</i></h4>
+        </div>
+    <div class="content-box1">
+    {% for product in health %}
+    <div class="col-lg-3">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 coverage">
+            <div class="thumbnail">
+                <a href="./view-product.html">
+                    <img class="prod_image"src="{{ url_for('static', filename=product.image_file) }}" alt="">
+                </a>
+                <div class="caption text-center">
+                    <h4 class="bold">{{product.prod_name}}</h4>
+                    <p>
+                        {{product.product_desc}}
+                    </p>
+                    <hr />
+                    <p>
+                        <a href="#" class="btn btn-default btn-sm view-button">
+                            <i class="glyphicon glyphicon-eye-open"></i> View
+                        </a>
+                        <a href="#" class="btn btn-default btn-sm cart-button">
+                            <i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div>
+    <div class='head-row'>
+        <h4><i>HOUSEHOLD</i></h4>
+        </div>
+    <div class="content-box1">
+    {% for product in household %}
+    <div class="col-lg-3">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 coverage">
+            <div class="thumbnail">
+                <a href="./view-product.html">
+                    <img class="prod_image"src="{{ url_for('static', filename=product.image_file) }}" alt="">
+                </a>
+                <div class="caption text-center">
+                    <h4 class="bold">{{product.prod_name}}</h4>
+                    <p>
+                        {{product.product_desc}}
+                    </p>
+                    <hr />
+                    <p>
+                        <a href="#" class="btn btn-default btn-sm view-button">
+                            <i class="glyphicon glyphicon-eye-open"></i> View
+                        </a>
+                        <a href="#" class="btn btn-default btn-sm cart-button">
+                            <i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+
+<div>
+    <div class='head-row'>
+        <h4><i>TOILETRIES</i></h4>
+        </div>
+    <div class="content-box1">
+    {% for product in toiletries %}
+    <div class="col-lg-3">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 coverage">
+            <div class="thumbnail">
+                <a href="./view-product.html">
+                    <img class="prod_image"src="{{ url_for('static', filename=product.image_file) }}" alt="">
+                </a>
+                <div class="caption text-center">
+                    <h4 class="bold">{{product.prod_name}}</h4>
+                    <p>
+                        {{product.product_desc}}
+                    </p>
+                    <hr />
+                    <p>
+                        <a href="#" class="btn btn-default btn-sm view-button">
+                            <i class="glyphicon glyphicon-eye-open"></i> View
+                        </a>
+                        <a href="#" class="btn btn-default btn-sm cart-button">
+                            <i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
 
 
 {% endblock content %}

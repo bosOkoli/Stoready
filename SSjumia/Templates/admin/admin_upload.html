@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% block content %}
+<div class = "content-section">
+    <form class="row" method= "POST" enctype="multipart/form-data">
+        <fieldset class="row">
+        {{form.hidden_tag()}}
+        <legend class ="border-bottom mb-4">{{legend}}</legend>
+        <div class= "col-md-6">
+            {{form.prod_name.label(class="form-control-label")}}
+        
+            {%if form.prod_name.errors %}
+            {{form.prod_name(class="form-control form-control-lg is-invalid control")}}
+                 <div class="invalid-feedback">
+                    {% for error in form.prod_name.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                    </div>
+            {% else %}
+                 {{form.prod_name(class="form-control form-control-lg control")}}
+            {% endif %}
+        </div>
+       
+        <div class= "col-md-6">
+            {{ form.prod_price.label(class="form-control-label")}}
+
+            {%if form.prod_price.errors %}
+            {{form.prod_price(class="form-control form-control-lg is-invalid control")}}
+                <div class="invalid-feedback">
+                    {% for error in form.prod_price.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                    {{form.prod_price(class="form-control form-control-lg control")}}
+            {% endif %}
+        </div>
+        <div class= "col-md-6">
+            {{ form.prod_stock.label(class="form-control-label")}}
+    
+            {%if form.prod_stock.errors %}
+            {{form.prod_stock(class="form-control form-control-lg is-invalid control")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.prod_stock.errors%}
+                        <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                        {{form.prod_stock(class="form-control form-control-lg control")}}
+                {% endif %}
+        </div>
+        <div class = "col-md-6">
+            {{ form.category.label(class="form-select-label")}}
+                    
+            {%if form.category.errors %}
+            {{form.category(class="form-control form-control-lg is-invalid contol")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.category.errors%}
+                        <span>{{error}}</span>
+                        {% endfor %}
+                    </div>
+            {% else %}
+                {{form.category(class="form-select form-select-sm control")}}
+            {% endif %}
+        </div>
+        <div class= "col-md-12">
+            {{ form.product_desc.label(class="form-control-label")}}
+
+            {%if form.product_desc.errors %}
+            {{form.product_desc(class="form-control form-control-lg is-invalid control")}}
+                <div class="invalid-feedback">
+                    {% for error in form.product_desc.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                    {{form.product_desc(class="form-control form-control-lg control")}}
+            {% endif %}
+        </div>
+        <div class="col-md-3">
+            {{ form.image_file.label }}
+    
+            {% if form.image_file.errors %}
+            {{ form.image_file(type="file", class="form-control-file" ,  accept="image/*") }}
+            <div class="invalid-feedback">
+              {% for error in form.image_file.errors %}
+              <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+            {% else %}
+            {{ form.image_file(type="file", class="form-control-file", accept="image/*" ) }}
+            {% endif %}
+          </div>
+        <div class= "form-group me-4">
+            {{ form.submit(class="btn btn-outline-info submit-control")}}
+        </div> 
+    </fieldset>          
+    </form>
+  </div>
+{% endblock content %}

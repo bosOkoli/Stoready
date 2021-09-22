@@ -55,4 +55,24 @@ body{
     border-color:#ed3431;
 }
 
+.control{
+    border-color:#e75480;
+}
 
+.control:focus{
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color:#ed3431;
+}
+.submit-control{
+    background-color:#e75480;
+    border-color:#e75480;
+    margin-top:1rem;
+    color:white;
+}
+.submit-control:hover{
+    background-color:#ed3431;
+    border-color:#ed3431;
+    margin-top:1rem;
+    color:white;
+}

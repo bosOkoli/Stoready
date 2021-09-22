@@ -9,10 +9,6 @@ from SSjumia import db,login_manager
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-@login_manager.user_loader
-def load_user(user_id):
-    return Admin.query.get(int(user_id))
-
 class User(db.Model,UserMixin):
     __tablename__='user'
     id= db.Column(db.Integer,unique=True,primary_key=True)
@@ -39,7 +35,7 @@ class User(db.Model,UserMixin):
             user_id = s.loads(token)['user_id']
         except:
             return None 
-        return Admin.query.get(user_id)
+        return User.query.get(user_id)
 
 
     def __repr__(self):
@@ -57,15 +53,16 @@ class Category(db.Model):
 class Product(db.Model):
     __tablename__="product"
     id=db.Column(db.Integer,unique=True,primary_key=True)
-    image_file=db.Column(db.String(50),nullable=False,default="default.jpg")
+    image_file=db.Column(db.String(500),nullable=False,default="default.jpg")
     prod_name=db.Column(db.String(20),nullable=False)
-    Prod_desc=db.Column(db.Text,nullable=False)
+    prod_price=db.Column(db.Integer,nullable=False)
+    product_desc=db.Column(db.Text,nullable=False)
     cat_id=db.Column(db.Integer,db.ForeignKey('categories.id'),nullable=False)
     date_posted=db.Column(db.DateTime,nullable=False,default=datetime.utcnow())
     prod_stock=db.Column(db.Integer)
     category=db.relationship('Category',backref='cat_posts',foreign_keys=[cat_id])
     orders=db.relationship('Order_items',backref='product',lazy=True)
-
+    
     def __repr__(self):
         return f'Post("{self.prod_name},{self.category},{self.image_file}")'
 
@@ -108,13 +105,4 @@ class Order_items(db.Model):
     
     def __repr__(self):
         return f"Order_items('{self.order_id}','{self.product_id}','{self.quantity}')"
-
-class Admin(db.Model,UserMixin):
-    __tablename__="admin"
-    id=db.Column(db.Integer,unique=True,primary_key=True)
-    Username=db.Column(db.String(20),unique=True,nullable=False)
-    email=db.Column(db.String(20),nullable=False,unique=True)
-    role=db.Column(db.String(20),nullable=False)
-    password=db.Column(db.String(50),nullable=False)
-    imagefile=db.Column(db.String(50),nullable=False)
 

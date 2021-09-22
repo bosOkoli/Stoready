@@ -14,13 +14,13 @@ class RegistrationForm(FlaskForm):
     email=StringField('Email',validators=[DataRequired(),Email()])
     address=StringField('Address',validators=[DataRequired()])
     city=StringField('City',validators=[DataRequired()])
-    State=SelectField('State',validators=[DataRequired()],
+    state=SelectField('State',validators=[DataRequired()],
                             choices=[('abia','Abia'),('adamawa','Adamawa'),('akwa-ibom','Akwa-Ibom'),('anambra','Anambra'),('bauchi','Bauchi'),('bayelsa','Bayelsa',),('benue','Benue'),('borno','Borno'),
                             ('cross-river','Cross River'),('delta','Delta'),('ebonyi','Ebonyi'),('edo','Edo'),('ekiti','Ekiti'),('enugu','Enugu'),('gombe','Gombe'),('imo','Imo'),('jigawa','Jigawa'),
                             ('kaduna','Kaduna'),('kano','Kano'),('kastina','Kastina'),('kebbi','Kebbi'),('kogi','Kogi'),('kwara','Kwara'),('lagos','Lagos'),('nasarawa','Nasarawa'),('niger','Niger'),
                             ('ondo','Ondo'),('osun','Osun'),('oyo','Oyo'),('plateau','Plateau'),('rivers','Rivers'),('sokoto','Sokoto'),('taraba','Taraba'),('yobe','Yobe'),('zamfara','Zamfara'),('abuja','Abuja')])
     country=SelectField('Country',validators=[DataRequired()],choices=('nigeria','Nigeria'))
-    Password=PasswordField('Password',validators=[DataRequired()])
+    password=PasswordField('Password',validators=[DataRequired()])
     confirm_password=PasswordField('Confirm Password',validators=[DataRequired(),EqualTo('password')])
     submit=SubmitField('Sign Up')
 
@@ -33,7 +33,7 @@ class RegistrationForm(FlaskForm):
 
 class LoginForm(FlaskForm):
     username= StringField('Username',validators=[DataRequired(),Length(min=2,max=20)])
-    Password=PasswordField('Password',validators=[DataRequired()])
+    password=PasswordField('Password',validators=[DataRequired()])
     remember=BooleanField('Remember Me')
     submit=SubmitField('Log In')
     
