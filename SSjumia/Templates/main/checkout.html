@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row" style="margin-left:5rem;">
+	<div class="col-lg-4">
+		<h3 class="bold">
+			<i class="glyphicon glyphicon-th-list"></i> Cart Details
+		</h3>
+
+		<div class="panel panel-primary">
+			<div class="panel-body">
+				Current Cart Value
+			</div>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<p>
+						{{session['cart']|length}} Item(s) <strong class="pull-right">&#8358;{{grand_total}}</strong>
+					</p>
+					<p>
+						24hr Shipping <strong class="pull-right">&#8358;1500</strong>
+					</p>
+				</li>
+				<li class="list-group-item">
+					<p>Total <strong class="pull-right">&#8358;{{grand_total_plus_shipping}}</strong></p>
+				</li>
+			</ul>
+		</div>
+        <form action="{{url_for('users.checkout')}}" method="POST">
+        <div class="row" style="margin-top: 2rem;">
+            <div class="col-lg-12">
+                <h4 class="bold">Payment</h4>
+            </div>
+            <div class="col-lg-8">
+                <div class="form-group">
+                    <label>Payment Option</label>
+                  {{form.csrf_token }}
+                  {{form.payment_type(class="form-control")}}
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="">
+                            I agree to the terms of service.
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-footer">
+        {{form.submit(type="submit",class="btn checkout-button btn-sm")}}
+    </div>
+</form>
+</div>
+</div>
+
+
+		<div class="panel panel-primary" style="margin-left: 6rem;">
+			<div class="panel-heading">
+				<h3 class="panel-title">Benefits</h3>
+			</div>
+			<div class="panel-body">
+				Some of the benefits of shopping with us include:
+			</div>
+			<ul class="list-group col-8">
+				<li class="list-group-item">Buyer Protection</li>
+				<li class="list-group-item">Next Day Delivery</li>
+				<li class="list-group-item">Flexible Payment Options</li>
+				<li class="list-group-item">7day Money Back Guarantee</li>
+			</ul>
+		</div>
+	</div>
+</div>
+{% endblock content %}

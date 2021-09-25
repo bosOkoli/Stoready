@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+<div style="display: inline-flex;">
+<div class="view-holder"> 
+    <div style="text-align: center;">
+        <i><h1 style="text-align: center;">{{product.prod_name}}</h1></i>
+    </div>
+<img class="product_image" src="{{url_for('static',filename=product.image_file)}}" alt="">
+    <div style="text-align: center;">
+       <i style="margin-left: 0.3rem;">{{product.product_desc}}</i>
+    </div>
+</div>
+<div style="margin-left: 20rem;">
+    {% if product.prod_stock != 0%}
+       <h2><i>Product in stock</i></h2>
+    {% else %}
+       <h2><i>Product out of stock</i></h2>
+    {% endif %}
+    <div class="king-view-container">
+    <div class="view-container">
+     <i><h4 style="margin-left:0.5rem;">PRICE:</h4></i>
+     <h4 style="margin-left:6rem;"><i>&#8358;{{product.prod_price}}</i></h4>
+    </div>
+    <form action="{{ url_for('users.add_to_cart',id=product_id) }}" method="POST">
+    {{ form.csrf_token }}
+    <i><h4 style="margin-top: 1rem;">QUANTITY:</h4></i>
+    {{form.quantity (type="number",class="form-control input-quantity",value="1",autocomplete="off",step="1",min="1",max=product.product_stock) }}
+   {{form.product_id(value=product.id)}}
+   <button class="btn btn-default btn-sm cart-button cart-button-again" type="submit" value="submit">
+      <i class="glyphicon glyphicon-shopping-cart"></i> Add To Cart
+   </button>
+   </form>
+</div>
+</div>
+</div>
+
+
+
+
+
+{% endblock content %}

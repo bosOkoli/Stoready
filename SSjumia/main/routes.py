@@ -19,5 +19,4 @@ def home():
     household = Product.query.filter_by(cat_id=5).all()
     toiletries = Product.query.filter_by(cat_id=6).all()
     trending = Product.query.order_by(desc(Product.id)).all()
-
     return render_template('main/home.html',title='home',products=products,electronics=electronics,food=food,fashion=fashion,health=health,household=household,toiletries=toiletries,trending=trending)

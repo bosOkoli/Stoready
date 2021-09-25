@@ -76,3 +76,7 @@ body{
     margin-top:1rem;
     color:white;
 }
+.input-group-text{
+    background-color:#e75480;
+    color:white;
+}

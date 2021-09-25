@@ -61,7 +61,7 @@ def admin_post():
             db.session.add(product)
             db.session.commit()
         flash('This Product has been added successfully!','success')
-        return redirect(url_for('main.home'))
+        return redirect(url_for('admin.admin_post'))
     return render_template('admin/admin_upload.html',admin=True,form=form)
 
 @admin.route('/admin/users')

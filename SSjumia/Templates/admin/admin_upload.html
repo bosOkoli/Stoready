@@ -24,15 +24,22 @@
             {{ form.prod_price.label(class="form-control-label")}}
 
             {%if form.prod_price.errors %}
-            {{form.prod_price(class="form-control form-control-lg is-invalid control")}}
+            <div  class= "input-group">
+                <span class="input-group-text" id="addon-wrapping">&#8358;</span>
+                        {{form.prod_price(class="form-control form-control-lg is-invalid control")}} 
+                
                 <div class="invalid-feedback">
                     {% for error in form.prod_price.errors%}
                     <span>{{error}}</span>
                     {% endfor %}
-                </div>
+                </div></div>
             {% else %}
-                    {{form.prod_price(class="form-control form-control-lg control")}}
+            <div  class= "input-group">
+            <span class="input-group-text" id="addon-wrapping">&#8358;</span>
+                    {{form.prod_price(class="form-control form-control-lg control")}} 
+            </div>
             {% endif %}
+       
         </div>
         <div class= "col-md-6">
             {{ form.prod_stock.label(class="form-control-label")}}

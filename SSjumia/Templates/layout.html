@@ -28,16 +28,47 @@
                 </form>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="url_for('main.home')"></a>
+                <div class="dropdown" style="margin-top:0.8rem; margin-right:0.8rem;">
+                  <i class="dropdown-toggle account-menu" type="" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Account
+                  </i> 
+                  {% if current_user.is_authenticated %}
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <hr style="width:120px; margin-left:1rem;">
+                      <li class="otherdrop"><a class="dropdown-item otherdrop" href="{{url_for('users.account')}}">My Account</a></li>
+                      <li class="otherdrop"><a class="dropdown-item otherdrop" href="{{url_for('users.orders')}}">Orders</a></li>
+                      <li class="otherdrop"><a class="dropdown-item otherdrop" href="{{url_for('users.logout')}}">Log out</a></li>
+                    </ul>
+                  {% else %}
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><button class="login"><a class="dropdown-item logindrop" href="{{url_for('users.login')}}">Log In</a></button></li>
+                      <hr style="width:120px; margin-left:1rem;">
+                      <li class="otherdrop"><a class="dropdown-item otherdrop" href="{{url_for('users.register')}}">Sign Up</a></li>
+                      <li class="otherdrop"><a class="dropdown-item otherdrop" href="{{url_for('users.login')}}">My Account</a></li>
+                    </ul>
+                  {% endif %}
+                </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"></a>
+                <a href="{{url_for('users.cart')}}" class="nav-link">
+                  <img class="cart" src="{{url_for('static',filename='img/img2/cart.jpg')}}" alt="">
+                  <span class="position-absolute  badge rounded-pill"><span style="margin-left:-0.3rem; position:relative">{{session['cart']|length}}</span></span>
+              </a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
       <div class="content-section">
+        {%with messages = get_flashed_messages(with_categories=true)%}
+                    {%if messages%}
+                        {%for category,message in messages%}
+                        <div class="alert alert-{{category}}">
+                                {{ message }}
+                        </div>
+                        {%endfor%}
+                    {%endif%}
+                  {%endwith%}
       {% block content %}{% endblock content %}
      </div>
 

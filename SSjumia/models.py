@@ -70,7 +70,7 @@ class Product(db.Model):
 class Order(db.Model):
     __tablename__='order'
     id=db.Column(db.Integer,unique=True,primary_key=True,nullable=False)
-    username=db.Column(db.String(50),unique=True,nullable=False)
+    username=db.Column(db.String(50),nullable=False)
     first_name=db.Column(db.String(50),nullable=False)
     last_name=db.Column(db.String(50),nullable=False)
     phone_num=db.Column(db.Integer,nullable=False)
@@ -88,10 +88,10 @@ class Order(db.Model):
     items=db.relationship('Order_items',backref='order',lazy=True)
 
     def order_total(self):
-        return db.session.query(db.func.sum(Order_items.quantity*Product.price)).join(Product).filter(Order_items.order_id==self.id).scalar()
+        return db.session.query(db.func.sum(Order_items.quantity*Product.prod_price)).join(Product).filter(Order_items.order_id==self.id).scalar()
     
     def quantity_total(self):
-        return db.session.query(db.func.sum(Order_items)).filter(Order_items.order_id==self.id).scalar()
+        return db.session.query(db.func.sum(Order_items.quantity)).filter(Order_items.order_id==self.id).scalar()
 
     def __repr__(self):
         return f"Order('{self.first_name}','{self.last_name}','{self.phone_num}','{self.email}')"
